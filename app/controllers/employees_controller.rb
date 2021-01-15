@@ -19,9 +19,18 @@ class EmployeesController < ApplicationController
   end
 
   def edit
+    @employee_to_edit = Employee.find( params[ :id ] )
   end
 
   def update
+    updated_employee = Employee.find( params[ :id ] )
+    updated_employee.update( employee_params( :first_name, :last_name, :alias, :title, :office, :img_url, :dog_id ) )
+    if updated_employee.valid?
+      redirect_to employee_path( updated_employee )
+    else
+      flash[ :messages ] = updated_employee.errors.full_messages
+      redirect_to edit_employee_path
+    end
   end
 
   def show

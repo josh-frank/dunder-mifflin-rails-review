@@ -1,2 +1,24 @@
-<h1>Employees#edit</h1>
-<p>Find me in app/views/employees/edit.html.erb</p>
+<h1>Edit employee: <%= @employee_to_edit.full_name %></h1>
+
+<%= form_for @employee_to_edit do | f | %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %><br /><br />
+    <%= f.label :alias %>
+    <%= f.text_field :alias %><br /><br />
+    <%= f.label :title %>
+    <%= f.text_field :title %><br /><br />
+    <%= f.label :office %>
+    <%= f.text_field :office %><br /><br />
+    <%= f.label :img_url, "Image URL: " %>
+    <%= f.text_field :img_url %><br /><br />
+    <%= f.label :dog_id, "Dog adopted: " %>
+    <%= collection_select :employee, :dog_id, Dog.all, :id, :name %><br /><br />
+    <% if flash[ :messages ] %>
+        <% flash[ :messages ].each do | message | %>
+            <p><%= message %></p>
+        <% end %>
+    <% end %>
+    <%= f.submit %>
+<% end %>

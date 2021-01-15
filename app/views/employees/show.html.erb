@@ -1,0 +1,10 @@
+<h1>Employee details: <%= @this_employee.full_name %></h1>
+
+<img alt=<%= @this_employee.full_name %> src=<%= @this_employee.img_url %> height=100 /><br />
+<ul>
+    <li><b>Name:</b> <%= @this_employee.full_name %></li>
+    <li><b>Alias:</b> <%= @this_employee.alias %></li>
+    <li><b>Title:</b> <%= @this_employee.title %></li>
+    <li><b>Office:</b> <%= @this_employee.office %></li>
+    <li><b>Adopted dog:</b> <%= link_to @this_employee.dog.name, dog_path( @this_employee.dog ) %></li>
+</ul>

@@ -1,0 +1,19 @@
+<h1>View dog: <%= @this_dog.name %></h1>
+<ul>
+    <li>
+        Breed: <%= @this_dog.breed %>
+    </li>
+    <li>
+        Age: <%= @this_dog.age %>
+    </li>
+    <li>
+        Employees who have adopted <%= @this_dog.name %>:
+        <ul>
+            <% @this_dog.employees.each do | employee | %>
+                <li>
+                    <%= employee.full_name %>
+                </li>
+            <% end %>
+        </ul>
+    </li>
+</ul>

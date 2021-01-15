@@ -1,0 +1,9 @@
+<h1>View all employees</h1>
+<ul>
+    <% @all_employees.each do | employee | %>
+        <li>
+            <img alt=<%= employee.full_name %> src=<%= employee.img_url %> height=100 /><br />
+            <%= link_to employee.full_name, employee_path( employee ) %><br /><br />
+        </li>
+    <% end %>
+</ul>
